@@ -2,7 +2,7 @@ import { ChangeEvent } from "preact/compat";
 import { useEffect, useState } from "preact/hooks";
 import { io } from "socket.io-client";
 
-const socket = io("http://192.168.0.11:3000");
+const socket = io("http://localhost:3000");
 
 const ChatBox = () => {
   const [username, setUsername] = useState<string | null>(null);
