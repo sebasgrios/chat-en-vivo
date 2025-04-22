@@ -15,7 +15,7 @@ const ChatBox = () => {
     socket.on("chat-history", (chatHistory) => {
       console.log("chatHistory", chatHistory);
 
-      setMessages(chatHistory.map(msg => msg.message));
+      setMessages(chatHistory.map(({ message }: { message: string }) => message));
     });
 
     socket.on("chat-message", (data) => {
@@ -68,7 +68,7 @@ const ChatBox = () => {
     <div>
       <input
         type="text"
-        onChange={e => setUsername(e.target?.value)}
+        onChange={e => setUsername((e.target as HTMLInputElement)?.value)}
       />
       <button onClick={saveUsername}>Crear usuario</button>
     </div>
